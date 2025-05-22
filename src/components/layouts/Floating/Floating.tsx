@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
-import type { BGColor, BorderColor, BorderPosition, BorderRadiusShorthand, BorderShorthand, BorderSize, Cursor, DynamicSpacing, FloatingPosition, MarginShorthand, Overflow, PaddingShorthand, Shadow, SpacingRel, Translate, Visibility } from '../../../types';
+import React, { ReactNode, useMemo } from 'react';
+import type { BGColor, BorderColor, BorderPosition, BorderRadiusShorthand, BorderShorthand, BorderSize, Cursor, DynamicSpacing, FloatingPosition, MarginShorthand, Overflow, PaddingShorthand, Shadow, SpacingRel, Translate, Visibility, CommonProps } from '../../../types';
 import Absolute from '../Absolute/Absolute';
 
-interface FloatingProps {
+interface FloatingProps extends CommonProps {
   position: FloatingPosition;
   offset?: SpacingRel;
   translate?: Translate;
@@ -31,58 +31,71 @@ interface FloatingProps {
   relative?: boolean;
   group?: boolean;
   dataTestid?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
+  className?: string;
 }
 
+const defaultProps = {
+  offset: '2',
+  position: 'top-right',
+} as const;
+
 const Floating: React.FC<FloatingProps> = ({
-  position = 'top-right',
-  offset = '2',
+  position = defaultProps.position,
+  offset = defaultProps.offset,
+  translate,
   children,
-  ...restProps
+  className = '',
+  ...rest
 }) => {
-  const top = useMemo<DynamicSpacing | undefined>(() => {
+  // Calculate the positioning values based on the position and offset
+  const { top, right, bottom, left } = useMemo(() => {
+    const result: Record<string, DynamicSpacing | undefined> = {
+      top: undefined,
+      right: undefined,
+      bottom: undefined,
+      left: undefined,
+    };
+
+    // Calculate top position
     if (position === 'top-left' || position === 'top-right' || position === 'top') {
-      return `-${offset}` as DynamicSpacing;
+      result.top = `-${offset}` as DynamicSpacing;
     } else if (position === 'inset top-left' || position === 'inset top-right' || position === 'inset bottom' || position === 'center') {
-      return offset as DynamicSpacing;
+      result.top = offset as DynamicSpacing;
     }
-    return undefined;
-  }, [position, offset]);
 
-  const right = useMemo<DynamicSpacing | undefined>(() => {
+    // Calculate right position
     if (position === 'top-right' || position === 'bottom-right' || position === 'right') {
-      return `-${offset}` as DynamicSpacing;
+      result.right = `-${offset}` as DynamicSpacing;
     } else if (position === 'inset top-right' || position === 'inset bottom-right' || position === 'inset right' || position === 'center') {
-      return offset as DynamicSpacing;
+      result.right = offset as DynamicSpacing;
     }
-    return undefined;
-  }, [position, offset]);
 
-  const bottom = useMemo<DynamicSpacing | undefined>(() => {
+    // Calculate bottom position
     if (position === 'bottom-left' || position === 'bottom-right' || position === 'bottom') {
-      return `-${offset}` as DynamicSpacing;
+      result.bottom = `-${offset}` as DynamicSpacing;
     } else if (position === 'inset bottom-left' || position === 'inset bottom-right' || position === 'inset bottom' || position === 'center') {
-      return offset as DynamicSpacing;
+      result.bottom = offset as DynamicSpacing;
     }
-    return undefined;
-  }, [position, offset]);
 
-  const left = useMemo<DynamicSpacing | undefined>(() => {
+    // Calculate left position
     if (position === 'top-left' || position === 'bottom-left' || position === 'left') {
-      return `-${offset}` as DynamicSpacing;
+      result.left = `-${offset}` as DynamicSpacing;
     } else if (position === 'inset top-left' || position === 'inset bottom-left' || position === 'inset left' || position === 'center') {
-      return offset as DynamicSpacing;
+      result.left = offset as DynamicSpacing;
     }
-    return undefined;
+
+    return result;
   }, [position, offset]);
 
   return (
-    <Absolute 
-      top={top} 
-      right={right} 
-      bottom={bottom} 
-      left={left} 
-      {...restProps}
+    <Absolute
+      top={top}
+      right={right}
+      bottom={bottom}
+      left={left}
+      translate={translate}
+      {...rest}
     >
       {children}
     </Absolute>
