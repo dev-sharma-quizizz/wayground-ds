@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { classes, tokens } from '../components/layouts/Absolute/classes';
+import { classes, tokens } from '../utils/classes';
+
 import type { CommonProps } from '../types';
 
 /**
