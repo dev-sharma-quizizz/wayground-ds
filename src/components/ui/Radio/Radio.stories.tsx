@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Radio> = {
   component: Radio,
-  title: 'UI/Radio',
+  title: 'Radio',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

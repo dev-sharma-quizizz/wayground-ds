@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
-  title: 'UI/Tooltip',
+  title: 'Tooltip',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -32,7 +32,7 @@ export const Default: Story = {
   },
   render: (args) => (
     <Tooltip {...args}>
-      <div style={{ 
+      <div style={{
         padding: '1rem',
         backgroundColor: '#E6DEFF',
         borderRadius: '0.25rem',

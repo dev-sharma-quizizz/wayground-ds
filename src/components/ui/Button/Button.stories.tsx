@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  title: 'UI/Button',
+  title: 'Button',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

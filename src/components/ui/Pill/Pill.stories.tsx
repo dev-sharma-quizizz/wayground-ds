@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Pill> = {
   component: Pill,
-  title: 'UI/Pill',
+  title: 'Pill',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

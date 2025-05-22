@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof CircularProgress> = {
   component: CircularProgress,
-  title: 'UI/CircularProgress',
+  title: 'CircularProgress',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

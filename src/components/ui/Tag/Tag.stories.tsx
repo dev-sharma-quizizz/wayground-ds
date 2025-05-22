@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Tag> = {
   component: Tag,
-  title: 'UI/Tag',
+  title: 'Tag',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

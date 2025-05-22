@@ -6,7 +6,7 @@ import Box from '../../primitive/Box/Box';
 
 const meta: Meta<typeof Divider> = {
   component: Divider,
-  title: 'UI/Divider',
+  title: 'Divider',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Avatar> = {
   component: Avatar,
-  title: 'UI/Avatar',
+  title: 'Avatar',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

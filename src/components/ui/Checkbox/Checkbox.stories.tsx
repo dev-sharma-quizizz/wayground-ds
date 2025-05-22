@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
-  title: 'UI/Checkbox',
+  title: 'Checkbox',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

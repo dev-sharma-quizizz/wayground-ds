@@ -3,7 +3,7 @@ import VisuallyHidden from './VisuallyHidden';
 
 const meta: Meta<typeof VisuallyHidden> = {
   component: VisuallyHidden,
-  title: 'Primitives/VisuallyHidden',
+  title: 'VisuallyHidden',
   tags: ['Primitives/VisuallyHidden', 'autodocs'],
   parameters: {
     docs: {

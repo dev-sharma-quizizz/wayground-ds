@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Toggle> = {
   component: Toggle,
-  title: 'UI/Toggle',
+  title: 'Toggle',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -25,12 +25,12 @@ type Story = StoryObj<typeof Toggle>;
 // Use a wrapper to handle state
 const ToggleWithState = (args: any) => {
   const [active, setActive] = useState(args.active || false);
-  
+
   return (
-    <Toggle 
-      {...args} 
-      active={active} 
-      onChange={(_, newActive) => setActive(newActive)} 
+    <Toggle
+      {...args}
+      active={active}
+      onChange={(_, newActive) => setActive(newActive)}
     />
   );
 };

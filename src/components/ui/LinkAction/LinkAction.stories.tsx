@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof LinkAction> = {
   component: LinkAction,
-  title: 'UI/LinkAction',
+  title: 'LinkAction',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

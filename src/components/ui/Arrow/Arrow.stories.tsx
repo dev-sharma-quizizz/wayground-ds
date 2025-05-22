@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof Arrow> = {
   component: Arrow,
-  title: 'UI/Arrow',
+  title: 'Arrow',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
