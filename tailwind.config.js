@@ -1,9 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+import safelist from './tailwind.safelist.ts';
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html",
   ],
+  safelist,
   theme: {
     extend: {
       colors: {
