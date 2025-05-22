@@ -3,6 +3,7 @@ import type {
   AlignItems, AlignSelf, CommonProps, ContentTag, FlexDirection, FlexWrap, Gap,
   JustifyContent
 } from '../../../types';
+import useCommon from '../../../hooks/useCommon';
 
 interface FlexProps extends CommonProps {
   direction?: FlexDirection;
@@ -52,37 +53,36 @@ const Flex = forwardRef<HTMLElement, FlexProps>(({
   className = '',
   ...rest
 }, ref) => {
+  // Get the utility functions from useCommon
+  const { getCommonClasses } = useCommon();
 
-  // Build class names based on props
-  const classNames = [
-    'flex',
-    `flex-${direction}`,
-    `flex-${wrap}`,
-    `justify-${justify}`,
-    `items-${align}`,
-    self && `self-${self}`,
-    gap && `gap-${gap}`,
-    rowGap && `row-gap-${rowGap}`,
-    columnGap && `column-gap-${columnGap}`,
-    fullWidth && 'w-full',
-    fullHeight && 'h-full',
-    fullSize && 'w-full h-full',
-    grow && 'flex-grow',
-    shrink && 'flex-shrink',
-    basis && `basis-${basis}`,
-    relative && 'relative',
-    group && 'group',
-    className
-  ].filter(Boolean).join(' ');
+  const commonClasses = getCommonClasses({
+    ...rest,
+    flexDirection: direction,
+    flexWrap: wrap,
+    justify,
+    align,
+    self,
+    gap,
+    rowGap,
+    columnGap,
+    fullWidth,
+    fullHeight,
+    fullSize,
+    grow,
+    shrink,
+    basis,
+    relative,
+    group,
+  } as any);
 
   const Component = as as React.ElementType;
 
   return (
     <Component
       ref={ref}
-      className={classNames}
+      className={`flex ${commonClasses} ${className}`}
       data-testid={dataTestid}
-      {...rest}
     >
       {children}
     </Component>
