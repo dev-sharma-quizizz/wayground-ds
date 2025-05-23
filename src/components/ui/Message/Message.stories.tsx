@@ -6,7 +6,7 @@ import Flex from '../../layouts/Flex/Flex';
 
 const meta: Meta<typeof Message> = {
   component: Message,
-  title: 'UI/Message',
+  title: 'Message',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

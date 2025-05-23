@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof SearchBar> = {
   component: SearchBar,
-  title: 'UI/SearchBar',
+  title: 'SearchBar',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

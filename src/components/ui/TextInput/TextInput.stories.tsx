@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../../hooks/useTheme';
 
 const meta: Meta<typeof TextInput> = {
   component: TextInput,
-  title: 'UI/TextInput',
+  title: 'TextInput',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
